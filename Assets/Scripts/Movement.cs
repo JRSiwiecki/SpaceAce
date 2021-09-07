@@ -5,10 +5,17 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    Rigidbody rb;
-    AudioSource audioSource;
+    //                  STRUCTURE 
+    // PARAMETERS - for tuning, typically in the editor
+    // CACHE - e.g. references for readability or speed
+    // STATE - private instance (member) variables
+    
     [SerializeField] float mainThrust = 1000f;
     [SerializeField] float rotationThrust = 100f;
+    [SerializeField] AudioClip mainEngine;
+    
+    Rigidbody rb;
+    AudioSource audioSource;
     
     // Start is called before the first frame update
     void Start()
@@ -32,7 +39,7 @@ public class Movement : MonoBehaviour
 
             if (!audioSource.isPlaying)
             {
-                audioSource.Play();
+                audioSource.PlayOneShot(mainEngine);
             }
         }
 
