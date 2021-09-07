@@ -3,6 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
+    // Level Load Delay Timer
+    [SerializeField] float delay = 0.75f;
+    AudioSource audioSource;
+    
     void OnCollisionEnter(Collision other) 
     {
         switch (other.gameObject.tag)
@@ -12,15 +16,32 @@ public class CollisionHandler : MonoBehaviour
                 break;
             
             case "Finish":
-                LoadNextLevel();
+                StartSuccessSequence();
                 break;
             
             default:
-                ReloadLevel();
+                StartCrashSequence();
                 break;
         }
     }
 
+    void StartCrashSequence()
+    {
+        // TODO: Add SFX upon crash
+        // TODO: Add particle FX upon crash
+        GetComponent<Movement>().enabled = false;
+        audioSource.Stop();
+        Invoke("ReloadLevel", delay);
+        
+    }
+
+    void StartSuccessSequence()
+    {
+        // TODO: Add SFX upon success
+        // TODO: Add particle FX upon success
+        Invoke("LoadNextLevel", delay);
+    }
+    
     void LoadNextLevel()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
