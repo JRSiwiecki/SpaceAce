@@ -307,9 +307,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -4712490676216943040, guid: 5c43f8fbc62db8b4fb90db195109675a, type: 3}
-      propertyPath: mainThrustAudio
+      propertyPath: boostThrustAudio
       value: 
-      objectReference: {fileID: 8300000, guid: 3407e8a7838432b4fa3e619aebd479ec, type: 3}
+      objectReference: {fileID: 8300000, guid: a4fc5c5aebae3424eb37bc896ccd5c1f, type: 3}
     - target: {fileID: 2350719040923387191, guid: 5c43f8fbc62db8b4fb90db195109675a, type: 3}
       propertyPath: m_Name
       value: Rocket

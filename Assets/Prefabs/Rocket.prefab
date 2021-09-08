@@ -361,8 +361,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 1.5
-  success: {fileID: 8300000, guid: c4fa47d4a2a5a8d4da11d1c6f5accf9b, type: 3}
-  crash: {fileID: 8300000, guid: 11411852943ea7144adec9be7ff3b3be, type: 3}
+  successAudio: {fileID: 8300000, guid: c4fa47d4a2a5a8d4da11d1c6f5accf9b, type: 3}
+  crashAudio: {fileID: 8300000, guid: 11411852943ea7144adec9be7ff3b3be, type: 3}
   successParticles: {fileID: 2379312118097216275}
   crashParticles: {fileID: 373416351688224626}
 --- !u!65 &3286855191835657983
@@ -376,8 +376,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.6273918, y: 4.5, z: 1}
-  m_Center: {x: -0.31590462, y: 1, z: 0}
+  m_Size: {x: 1.626049, y: 4.5, z: 1}
+  m_Center: {x: -0.012830734, y: 1, z: 0}
 --- !u!1 &3649119942668345674
 GameObject:
   m_ObjectHideFlags: 0

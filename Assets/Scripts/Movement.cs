@@ -39,53 +39,78 @@ public class Movement : MonoBehaviour
     {              
         if (Input.GetKey(KeyCode.Space))
         {
-            rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
-
-            if (!audioSource.isPlaying)
-            {
-                audioSource.PlayOneShot(mainThrustAudio);
-            }
-
-            if (!mainThrustParticles.isPlaying)
-            {
-                mainThrustParticles.Play();
-            }
+            StartThrusting();
         }
 
         else
         {
-            audioSource.Stop();
-            mainThrustParticles.Stop();
+            StopThrusting();
         }
     }
-    
+
     void ProcessRotation()
     {     
         if (Input.GetKey(KeyCode.A))
         {
-            ApplyRotation(rotationThrust);
-            
-            if (!rightBoosterParticles.isPlaying)
-            {
-                rightBoosterParticles.Play();
-            }
+            RotateLeft();
         }
 
         else if (Input.GetKey(KeyCode.D))
         {
-            ApplyRotation(-rotationThrust);
-            
-            if (!leftBoosterParticles.isPlaying)
-            {
-                leftBoosterParticles.Play();
-            }
+            RotateRight();
         }
 
         else
         {
-            rightBoosterParticles.Stop();
-            leftBoosterParticles.Stop();
+            StopRotating();
         }
+    }
+
+    void StartThrusting()
+    {
+        rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
+
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(mainThrustAudio);
+        }
+
+        if (!mainThrustParticles.isPlaying)
+        {
+            mainThrustParticles.Play();
+        }
+    }
+
+    void StopThrusting()
+    {
+        audioSource.Stop();
+        mainThrustParticles.Stop();
+    }
+
+    void RotateLeft()
+    {
+        ApplyRotation(rotationThrust);
+
+        if (!rightBoosterParticles.isPlaying)
+        {
+            rightBoosterParticles.Play();
+        }
+    }
+    
+    void RotateRight()
+    {
+        ApplyRotation(-rotationThrust);
+
+        if (!leftBoosterParticles.isPlaying)
+        {
+            leftBoosterParticles.Play();
+        }
+    }
+
+    void StopRotating()
+    {
+        rightBoosterParticles.Stop();
+        leftBoosterParticles.Stop();
     }
 
     void ApplyRotation(float rotationThisFrame)
