@@ -9,9 +9,12 @@ public class CollisionHandler : MonoBehaviour
     // STATE - private instance (member) variables
     
     // Level Load Delay Timer
-    [SerializeField] float delay = 0.75f;
+    [SerializeField] float delay = 1.5f;
     [SerializeField] AudioClip success;
     [SerializeField] AudioClip crash;
+
+    [SerializeField] ParticleSystem successParticles;
+    [SerializeField] ParticleSystem crashParticles;
     
     AudioSource audioSource;
 
@@ -45,9 +48,9 @@ public class CollisionHandler : MonoBehaviour
     void StartCrashSequence()
     {
         isTransitioning = true;
-        // TODO: Add particle FX upon crash
         audioSource.Stop();
         audioSource.PlayOneShot(crash);
+        crashParticles.Play();
         GetComponent<Movement>().enabled = false;
         Invoke("ReloadLevel", delay);
     }
@@ -55,9 +58,9 @@ public class CollisionHandler : MonoBehaviour
     void StartSuccessSequence()
     {
         isTransitioning = true;
-        // TODO: Add particle FX upon success
         audioSource.Stop();
         audioSource.PlayOneShot(success);
+        successParticles.Play();
         GetComponent<Movement>().enabled = false;
         Invoke("LoadNextLevel", delay);
     }
