@@ -11,4 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Under.unity
     guid: 836612c54bb415d43800d12847fc1394
+  - enabled: 1
+    path: Assets/Scenes/Tunnel.unity
+    guid: 7e350fbc23879ba42b20154fe771fa94
+  - enabled: 1
+    path: Assets/Scenes/Moving Finish 1.unity
+    guid: 8b94fe3bb2493634eb74fefe2ce1d8fc
+  - enabled: 1
+    path: Assets/Scenes/Up is Down.unity
+    guid: f508bda6b9b4f6241a4c32e55b990480
   m_configObjects: {}
